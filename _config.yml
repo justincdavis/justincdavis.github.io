@@ -24,7 +24,7 @@ author:
   # Biographic information
   avatar           : "headshot_full.jpg"
   name             : "Justin Davis"
-  pronouns         : "he/him"  
+  pronouns         : # "he/him"  
   bio              : "PhD Student, HPSS Lab @ Mines"
   location         : "Golden, CO"
   employer         : "Colorado School of Mines"
@@ -46,7 +46,7 @@ author:
   codepen          : # Username
   dribbble         : # Username
   github           : "justincdavis"
-  kaggle           : # Username  
+  kaggle           : "justinconnordavis"  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
