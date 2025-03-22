@@ -1,5 +1,6 @@
 ---
 title: "Context-aware Multi-Model Object Detection for Diversely Heterogeneous Compute Systems"
+authors: "Justin Davis and Mehmet E. Belviranli"
 collection: publications
 category: conferences
 permalink: /publication/date24_context
