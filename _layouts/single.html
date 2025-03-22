@@ -79,6 +79,14 @@ layout: default
           <p><a href="{{ page.citation }}">Download Citation</a></p>
         {% endif %}
 
+        {% if page.code and page.documentation %}
+          <p><a href="{{ page.code }}">Code</a> | <a href="{{ page.documentation }}">Documentation</a></p>
+        {% elsif page.code %}
+          <p><a href="{{ page.code }}">Code</a></p>
+        {% elsif page.documentation %}
+          <p><a href="{{ page.documentation }}">Documentation</a></p>
+        {% endif %}
+
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
