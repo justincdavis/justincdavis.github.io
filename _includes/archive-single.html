@@ -92,5 +92,13 @@
       <p><a href="{{ post.citation }}">Download Citation</a></p>
     {% endif %}
 
+    {% if post.code and post.documentation %}
+      <p><a href="{{ post.code }}">Code</a> | <a href="{{ post.documentation }}">Documentation</a></p>
+    {% elsif post.code %}
+      <p><a href="{{ post.code }}">Code</a></p>
+    {% elsif post.documentation %}
+      <p><a href="{{ post.documentation }}">Documentation</a></p>
+    {% endif %}
+
   </article>
 </div>
