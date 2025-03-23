@@ -4,7 +4,7 @@ collection: talks
 type: "Guest Lecture"
 permalink: /talks/2023-beyond-programming
 venue: "Brown Hall, Colorado School of Mines"
-date: Fall 2023
+date: 2023-09-08
 location: "Golden, CO"
 ---
 

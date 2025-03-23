@@ -4,7 +4,7 @@ collection: talks
 type: "Guest Lecture"
 permalink: /talks/2023-os-interrupts
 venue: "Brown Hall, Colorado School of Mines"
-date: Spring 2023
+date: 2023-02-14
 location: "Golden, CO"
 ---
 
