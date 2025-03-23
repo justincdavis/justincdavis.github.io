@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default"
+site_theme               : "dark"
 title                    : "Justin Davis"
 title_separator          : "-"
 name                     : &name "Justin Davis"
@@ -147,7 +147,7 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
+  provider               :  "google" #, "google-universal", "google-analytics-4", "custom"
   google:
     tracking_id          :
 
