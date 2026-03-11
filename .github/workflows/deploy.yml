@@ -1,26 +1,16 @@
-# ============================================================
-# GitHub Actions — Auto Deploy to GitHub Pages
-# Triggers on every push to `main`.
-# Builds the React + Vite site and deploys dist/public/
-# to the gh-pages branch using the official GitHub Pages action.
-# ============================================================
-
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - main
-  # Allow manual trigger from the Actions tab
   workflow_dispatch:
 
-# Grant GITHUB_TOKEN the permissions needed to deploy Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Only allow one concurrent deployment; cancel in-progress runs
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -29,26 +19,21 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           run_install: false
-
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
         run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
-
       - name: Cache pnpm store
         uses: actions/cache@v4
         with:
@@ -56,15 +41,11 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
       - name: Build site
-        # Run only the Vite client build — we don't need the server bundle for GitHub Pages
         run: pnpm exec vite build
         env:
-          # Vite analytics placeholders — safe to leave empty for self-hosted builds
           VITE_ANALYTICS_ENDPOINT: ''
           VITE_ANALYTICS_WEBSITE_ID: ''
           VITE_APP_ID: ''
@@ -73,22 +54,18 @@ jobs:
           VITE_FRONTEND_FORGE_API_KEY: ''
           VITE_FRONTEND_FORGE_API_URL: ''
           VITE_OAUTH_PORTAL_URL: ''
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # The Vite build outputs to dist/public/
           path: dist/public
 
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
