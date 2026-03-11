@@ -8,6 +8,7 @@
 import { Link } from "wouter";
 import { profile } from "@/lib/data";
 import { useTheme } from "@/contexts/ThemeContext";
+import ParticleCanvas from "@/components/ParticleCanvas";
 
 const socialLinks = [
   {
@@ -78,17 +79,15 @@ export default function Home() {
   const isDark = theme === "dark";
 
   const heroBg = isDark
-    ? `linear-gradient(oklch(0.13 0.015 240 / 0.82), oklch(0.13 0.015 240 / 0.82)),
-       url('https://d2xsxph8kpxj0f.cloudfront.net/310519663303817755/NwXtpGw2BKpmDDxCF2yozD/hero_bg-FfxkwNMQeAeQkBoHTy4QpN.webp') center/cover no-repeat,
-       oklch(0.13 0.015 240)`
-    : `radial-gradient(ellipse 80% 60% at 60% -10%, oklch(0.92 0.06 264 / 0.12), transparent),
-       url('https://d2xsxph8kpxj0f.cloudfront.net/310519663303817755/NwXtpGw2BKpmDDxCF2yozD/hero_bg-FfxkwNMQeAeQkBoHTy4QpN.webp') center/cover no-repeat,
-       oklch(0.985 0.008 80)`;
+    ? "oklch(0.13 0.015 240)"
+    : "oklch(0.985 0.008 80)";
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative pt-28 pb-20 overflow-hidden" style={{ background: heroBg }}>
+        {/* Dynamic particle network background */}
+        <ParticleCanvas />
         <div className="container">
           <div className="flex flex-col md:flex-row items-start gap-10 md:gap-16">
             {/* Profile Photo */}
