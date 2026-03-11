@@ -115,12 +115,6 @@ export default function Navbar() {
                 }
               `}
             >
-              <span className={`block transition-all duration-300 ${isDark ? "rotate-0 scale-100" : "rotate-90 scale-75 opacity-0 absolute"}`}>
-                {isDark ? <SunIcon /> : null}
-              </span>
-              <span className={`block transition-all duration-300 ${!isDark ? "rotate-0 scale-100" : "rotate-90 scale-75 opacity-0 absolute"}`}>
-                {!isDark ? <MoonIcon /> : null}
-              </span>
               {isDark ? <SunIcon /> : <MoonIcon />}
             </button>
           </nav>
